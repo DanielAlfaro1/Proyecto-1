@@ -2,10 +2,15 @@ package proyecto1_201700857;
 
 
 public class clasePrincipal_201700857 {
-    public static int contAl=0,contMa=0;
+    public static int contAl=0,contMa=0,contL=0,contR=0,contT=0,contLD=0;
         public static usuario_201700857 admin[]=new usuario_201700857[1];
         public static usuario_201700857 alumno[]=new usuario_201700857[11];
         public static usuario_201700857 maestro[]=new usuario_201700857[11];
+        public static Libro_201700857 Libro[]=new Libro_201700857[11];
+        public static Revista_201700857 Revista[]=new Revista_201700857[11];
+        public static Tesis_201700857 Tesis[]=new Tesis_201700857[11];
+        public static LibroD_201700857 Digital[]=new LibroD_201700857[11];
+        public static VCBiblio_201700857 VCBiblio;
         public static VError_201700857 VError;
         public static VError_201700857 VExiste;
         public static VAdmin_201700857 VAdmin;
@@ -23,7 +28,9 @@ public class clasePrincipal_201700857 {
         */
         alumno[0]=new Estudiante_201700857("3006786905050","Joselito","Joselito2","Estrenador","Estudiante","miquillo");
         
-        maestro[0]=new Maestro_201700857("215411845411","Michael","Michael2","Coestrenador","Maestro","Biblio");
+        maestro[0]=new Maestro_201700857("215411845411","Carolina","Escobar","Coestrenador","Catedrático","Biblio");
+        
+        Libro[0]=new Libro_201700857("AUTOR",0000,17,"TITULO",0,"CLAVE1","CLAVE2","CLAVE3","DESCR","TENA1","TEMA2","TEMA3",18);
         for (usuario_201700857 u:admin){
             System.out.println(u.mostrar_datos());
         }
@@ -35,6 +42,19 @@ public class clasePrincipal_201700857 {
             maestro[b]=new Maestro_201700857(" "," "," "," "," "," ");
             
         }
+        for(int l=1;l<Libro.length;l++){
+            Libro[l]=new Libro_201700857("autor",0000,0,"titulolibro",0,"clave1","clave2","clave3","descripcion","tema1","tema2","tema3",0);
+        }
+        for(int r=1;r<Revista.length;r++){
+            Revista[r]=new Revista_201700857("autor",0000,"titulorevista",0000,"clave1","clave2","clave3","descripcion","tema1","tema2","tema3",00,"categoria",00);
+        }
+        for (int t=1;t<Tesis.length;t++){
+            Tesis[t]= new Tesis_201700857("autor",0000,"titulotesis",000,"clave1","clave2","clave3","descripcion","tema1","tema2","tema3",00,"area");
+        }
+        for(int d=1;d<Digital.length;d++){
+            Digital[d]= new LibroD_201700857("autor",0000,"titulodigital",000,"clave1","clave2","clave3","descripcion","tema1","tema2","tema3",00000);
+        }
+        
         for(usuario_201700857 ad:admin){
             System.out.println(ad.mostrar_datos());
         }
@@ -52,6 +72,8 @@ public class clasePrincipal_201700857 {
         VCusuario = new VCUsuario_201700857();
         VModU = new VModUsuario_201700857();
         VEU = new VEUsuario_201700857();
+        VCBiblio = new VCBiblio_201700857();
+        
     }
     
 }
