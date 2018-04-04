@@ -44,7 +44,7 @@ public class VMosUsuario_201700857 {
         for (int i=0;i<clasePrincipal_201700857.alumno.length;i++){
 //            for(int j=0;j<clasePrincipal_201700857.alumno.length;j++){
                 if (clasePrincipal_201700857.alumno[i].User.equals(" ")==false){
-                    System.out.println("Aquí no hará nada");
+                    System.out.println("Esto si lo vas a transcribir");
                     posicion++;
                     Data[i][0]=""+i;
                     Data[i][1]=clasePrincipal_201700857.alumno[i].ID;
@@ -54,8 +54,8 @@ public class VMosUsuario_201700857 {
                     Data[i][5]=clasePrincipal_201700857.alumno[i].Rol;
                     Data[i][6]=clasePrincipal_201700857.alumno[i].Password;
                 }else{
+                    System.out.println("Aquí no hará nada");
                     
-                    System.out.println("Esto si lo vas a transcribir");
                 }
 //            }
         }
