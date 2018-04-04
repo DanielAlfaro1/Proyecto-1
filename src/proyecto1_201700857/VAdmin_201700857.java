@@ -10,7 +10,11 @@ public class VAdmin_201700857 {
     JButton Logout, CrearUsuario, ModificarUsuario, EliminarUsuario, MostrarUsuario, CrearBiblio,ModificarBiblio,EliminarBiblio,MostrarBiblio,ReporteUsuario,ReporteLibros;
     JLabel Usuarios, Bibliografias, Reportes;
     JPanel P1;
+    JCheckBox normal, masiva;
     public static VMosUsuario_201700857 VMosU;
+    public static VError_201700857 Carga1 = new VError_201700857("POR FAVOR ELIJA UNA OPCIÓN");
+    public static VError_201700857 Carga2 = new VError_201700857("POR FAVOR ELIJA SOLO UNA OPCIÓN");
+    public static VError_201700857 Disp = new VError_201700857("<html><body>LO LAMENTAMOS ESTA FUNCIÓN NO SE ENCUENTRA DISPONIBLE.<br>POR FAVOR PERDONE AL DESARROLLADOR</body></html>");
     public void Set_Visible(){
         VAdmin.setVisible(true);
     }
@@ -77,6 +81,14 @@ public class VAdmin_201700857 {
     Reportes = new JLabel("REPORTES");
     Reportes.setFont(font);
     Reportes.setBounds(100,500,200,30);
+    //CheckBox
+    normal = new JCheckBox("CARGA NORMAL");
+    normal.setFont(font);
+    normal.addMouseListener(boton);
+    normal.setBounds(150,350,200,30);
+    masiva = new JCheckBox("CARGA MASIVA");
+    masiva.setFont(font);
+    masiva.setBounds(150,375,200,30);
     //Agregar objetos
     P1.add(CrearUsuario);
     P1.add(ModificarUsuario);
@@ -92,6 +104,8 @@ public class VAdmin_201700857 {
     P1.add(Bibliografias);
     P1.add(Reportes);
     P1.add(Logout);
+    P1.add(normal);
+    P1.add(masiva);
     P1.setVisible(true);
 }
     
@@ -126,6 +140,27 @@ public class VAdmin_201700857 {
         }
         if (e.getSource()==MostrarUsuario){
             VMosU = new VMosUsuario_201700857();
+        }
+        if (e.getSource()==CrearBiblio){
+             if (normal.isSelected()&&(masiva.isSelected()==false)){
+            System.out.println("NORMAL HA SIDO SELECCIONADO");
+            clasePrincipal_201700857.VCBiblio.Set_Visible();
+            }
+             if ((normal.isSelected()==false)&&masiva.isSelected()){
+                 System.out.println("MASIVA HA SIDO SELECCIONADO");
+                 Disp.Set_Visible();
+             }
+             if(normal.isSelected()&&masiva.isSelected()){
+                 System.out.println("POR FAVOR SOLO ELIJA UNA OPCIÓN");
+                 Carga2.Set_Visible();
+             }
+             if((normal.isSelected()==false)&&(masiva.isSelected()==false)){
+                 System.out.println("POR FAVOR ELIJA ALGUNA OPCIÓN");
+                 Carga1.Set_Visible();
+             }
+        }
+        if (e.getSource()==MostrarBiblio){
+            
         }
         }
 
